@@ -1,0 +1,42 @@
+<div class="container main-container">
+  <h2>Lista de Produdos</h2>
+  <div style="display: flex; justify-content: flex-end">    
+    <a a [routerLink]="['produto/add']" class="btn btn-primary">Adicionar</a>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Preço de compra</th>
+        <th>Preço de venda</th>
+        <th>Código</th>
+        <th>Descrição</th>
+        <th>Quantidade total</th>
+        <th>Qunatidade mínima</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <th>{{ product.purchasePrice }}</th>
+        <td>{{ product.salePrice }}</td>
+        <td>{{ product.code }}</td>
+        <td>{{ product.description }}</td>
+        <td>{{ product.quantity }}</td>
+        <td>{{ product.minimumQuantity }}</td>
+        <td>
+          <div class="btn-group" role="group" aria-label="Basic example">
+            <a
+              [routerLink]="['produto/edit', product.id]"
+              class="btn btn-secondary"
+              >Edit</a
+            >
+            <a href="javascript: void(0);" (click)="delete(product.id)"
+              class="btn btn-danger"
+              >Delete</a
+            >
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

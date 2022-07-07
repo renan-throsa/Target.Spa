@@ -1,0 +1,101 @@
+<div class="container main-container">
+  <h4>Produto Cadastro</h4>
+  <hr />
+  <form novalidate (ngSubmit)="editProduct()" [formGroup]="entryForm">
+      <div class="form-horizontal">
+
+          <div class="form-group">
+              <label class="col-md-2 control-label" for="description">Descrição</label>
+              <div class="col-md-10">
+                  <input class="form-control" id="description" type="text" placeholder="Buscar"
+                      formControlName="description"
+                      [ngClass]="{'is-invalid': entryForm.get('description').errors && (entryForm.get('description').dirty || entryForm.get('description').touched) }" />
+                  <span class="text-danger"
+                      *ngIf="entryForm.get('Descrição')?.errors && (entryForm.get('description').dirty || entryForm.get('description').touched)">
+                      <p>Preencha o campo Descrição!</p>
+                  </span>
+              </div>
+          </div>
+
+          <div class="form-group">
+              <label class="col-md-2 control-label">Valor de compra</label>
+              <div class="col-md-10">
+                  <input class="form-control" id="purchasePrice" type="number" placeholder="Valor de compra (requerido)"
+                      formControlName="purchasePrice"
+                      [ngClass]="{'is-invalid': entryForm.get('purchasePrice').errors && (entryForm.get('purchasePrice').dirty || entryForm.get('purchasePrice').touched) }" />
+
+                  <span class="text-danger"
+                      *ngIf="entryForm.get('purchasePrice')?.errors?.['required'] && (entryForm.get('purchasePrice').dirty || entryForm.get('purchasePrice').touched)">
+                      <p>Preencha o campo Valor de compra!</p>
+                  </span>
+
+              </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-md-2 control-label">Valor de venda</label>
+            <div class="col-md-10">
+                <input class="form-control" id="salePrice" type="number" placeholder="Valor de venda(requerido)"
+                    formControlName="salePrice"
+                    [ngClass]="{'is-invalid': entryForm.get('salePrice').errors && (entryForm.get('salePrice').dirty || entryForm.get('salePrice').touched) }" />
+
+                <span class="text-danger"
+                    *ngIf="entryForm.get('salePrice')?.errors?.['required'] && (entryForm.get('salePrice').dirty || entryForm.get('salePrice').touched)">
+                    <p>Preencha o campo Valor de venda!</p>
+                </span>
+            </div>
+        </div>
+
+          <div class="form-group">
+              <label class="col-md-2 control-label">Código</label>
+              <div class="col-md-10">
+                  <input class="form-control" id="code" type="text" placeholder="Código (requerido)"
+                      formControlName="code"
+                      [ngClass]="{'is-invalid': entryForm.get('code').errors && (entryForm.get('code').dirty || entryForm.get('code').touched) }" />
+                  <span class="text-danger"
+                      *ngIf="entryForm.get('code')?.errors?.['required'] && (entryForm.get('code').dirty || entryForm.get('code').touched)">
+                      <p>Preencha o campo Código!</p>
+                  </span>
+              </div>
+          </div>          
+
+          <div class="form-group">
+            <label class="col-md-2 control-label">Quantidade total</label>
+            <div class="col-md-10">
+                <input class="form-control" id="quantity" type="number" placeholder="Quantidade total(requerido)"
+                    formControlName="quantity"
+                    [ngClass]="{'is-invalid': entryForm.get('quantity').errors && (entryForm.get('quantity').dirty || entryForm.get('quantity').touched) }" />
+
+                <span class="text-danger"
+                    *ngIf="entryForm.get('quantity')?.errors?.['required'] && (entryForm.get('quantity').dirty || entryForm.get('quantity').touched)">
+                    <p>Preencha o campo Quantidade total!</p>
+                </span>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-2 control-label">Quantidade mínima</label>
+          <div class="col-md-10">
+              <input class="form-control" id="minimumQuantity" type="number" placeholder="Quantidade mínima(requerido)"
+                  formControlName="minimumQuantity"
+                  [ngClass]="{'is-invalid': entryForm.get('minimumQuantity').errors && (entryForm.get('minimumQuantity').dirty || entryForm.get('minimumQuantity').touched) }" />
+
+              <span class="text-danger"
+                  *ngIf="entryForm.get('minimumQuantity')?.errors?.['required'] && (entryForm.get('minimumQuantity').dirty || entryForm.get('minimumQuantity').touched)">
+                  <p>Preencha o campo Quantidade mínima!</p>
+              </span>
+
+          </div>
+      </div>
+
+          <div class="form-group">
+              <div class="col-md-4 col-md-offset-2">
+                  <span><button class="btn btn-success" id="Registrar" [disabled]="!entryForm.valid"
+                          type="submit">salvar</button></span>
+              </div>
+          </div>
+
+      </div>
+  </form>
+</div>
